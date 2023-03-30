@@ -5,7 +5,7 @@ const { promisify } = require("util");
 exports.sign = promisify(jwt.sign)
 
 // 验证
-exports.verity = promisify(jwt.verify);
+exports.verify = promisify(jwt.verify);
 
 // 不验证直接解析
 exports.decode = promisify(jwt.decode)

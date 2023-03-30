@@ -13,6 +13,7 @@ exports.login = async (req, res, next) => {
         userId: user._id,
       },
       jwtSecret,
+       // 设置token过期时间，单位为秒
       {
         expiresIn: 60 * 60 * 24,
       }
@@ -42,4 +43,14 @@ exports.register = async(req, res, next) => {
     next(err)
   }
 };
+
+exports.getCurrentUser = async(req, res, next) => {
+  try {
+    res.status(200).json({
+      user: req.user
+    })
+  } catch(err) {
+    next(err)
+  }
+}
 
