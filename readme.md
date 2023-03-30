@@ -8,6 +8,18 @@
 |-- util       # 工具模块
 |-- app.js     # 用于自定义启动时的初始化工作
 
+#  Build Setup
+
+``` bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:3000
+npm run dev
+
+```
+
+
 # 依赖
  "dependencies": {
     "cors": "^2.8.5",
