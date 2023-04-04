@@ -6,7 +6,7 @@ module.exports = async (req, res, next) => {
   let token = req.headers.authorization;
   // 验证token
   token = token ? token.split("Token ")[1]: null;
-  console.log(token)
+  // console.log(token)
   if(!token) {
     return res.status(401).end();
   }

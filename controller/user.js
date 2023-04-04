@@ -47,7 +47,8 @@ exports.register = async(req, res, next) => {
 exports.getCurrentUser = async(req, res, next) => {
   try {
     res.status(200).json({
-      user: req.user
+      user: req.user,
+      event: 0
     })
   } catch(err) {
     next(err)
