@@ -5,8 +5,9 @@ const auth = require("../middleware/auth");
 const router = express.Router();
 
 
-router.post("/article/createArticle",auth, articleValidator.createArticle, articleCtrl.createArticle);
+router.post("/createArticle",auth, articleValidator.createArticle, articleCtrl.createArticle);
 
+router.get('/getArticleList', articleCtrl.getListArticle);
 router.get('/:articleId', articleValidator.getArticle, articleCtrl.getArticle);
 
 module.exports = router;
