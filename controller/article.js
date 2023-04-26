@@ -65,7 +65,6 @@ exports.getListArticle = async (req, res, next) => {
 }
 
 exports.updateArticle = async (req, res, next) => {
-  console.log(req)
   try {
     const article = req.article;
     const bodyArticle = req.body.article;
@@ -76,6 +75,21 @@ exports.updateArticle = async (req, res, next) => {
     res.status(200).json({
       article
     })
+  } catch (error) {
+    next(error)
+  }
+}
+
+exports.deleteAritcle = async(req, res, next) => {
+  try {
+    console.log(req)
+    const article = req.article;
+    await article.remove();
+    res.status(204).json(
+      {
+        "message": "删除成功"
+      }
+    )
   } catch (error) {
     next(error)
   }

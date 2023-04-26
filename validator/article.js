@@ -25,7 +25,9 @@ exports.updateArticle = [
     const article = await Article.findById(articleId);
     req.article = article
     if (!article) {
-      return res.status(400).end();
+      return res.status(400).json({
+        "message": "文章不存在"
+      });
     }
     next();
   },
@@ -35,4 +37,6 @@ exports.updateArticle = [
     }
     next();
   }
-]
+];
+
+exports.deleteAritcle = exports.updateArticle;
