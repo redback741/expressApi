@@ -9,5 +9,6 @@ router.post("/createArticle",auth, articleValidator.createArticle, articleCtrl.c
 
 router.get('/getArticleList', articleCtrl.getListArticle);
 router.get('/:articleId', articleValidator.getArticle, articleCtrl.getArticle);
+router.put('/:articleId',auth, articleValidator.updateArticle, articleCtrl.updateArticle);
 
 module.exports = router;

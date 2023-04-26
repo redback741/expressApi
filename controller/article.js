@@ -63,3 +63,20 @@ exports.getListArticle = async (req, res, next) => {
     next(error);
   }
 }
+
+exports.updateArticle = async (req, res, next) => {
+  console.log(req)
+  try {
+    const article = req.article;
+    const bodyArticle = req.body.article;
+    article.title = bodyArticle.title || article.title;
+    article.description = bodyArticle.description|| article.description;
+    article.body = bodyArticle.body || article.body;
+    await article.save();
+    res.status(200).json({
+      article
+    })
+  } catch (error) {
+    next(error)
+  }
+}
